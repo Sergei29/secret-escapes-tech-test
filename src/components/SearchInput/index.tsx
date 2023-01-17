@@ -83,7 +83,7 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
               color: theme.palette.common.black,
             }}
           >
-            And HIT ENTER!!!
+            👻 And HIT ENTER!!!
           </Typography>{" "}
         </FormLabel>
         <TextField
