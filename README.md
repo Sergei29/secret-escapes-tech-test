@@ -1,3 +1,29 @@
+## About this task
+
+In order to achieve a reasonably fast result and being able to present some kind of production version of this app - I have
+chosen the following techincal stack:
+
+- Next.js template with Typescript
+- Apollo-Client
+- Material UI
+
+## Production
+
+The Production version is deployed to https://secret-escapes-tech-test.vercel.app/
+
+## Installation instructions
+
+- clone the repo
+- install packages
+- create environment variable file `.env` add variable `NEXT_PUBLIC_API_URL=https://staging.sparrow.escapes.tech/graphql`
+- run the scripts: in dev mode `yarn dev` or `npm run dev` or pnpm
+
+## What I would like to add should I have more time?
+
+- Review my code once more - it is far from being ready to ship in prod, I believe there are some bugs(eg. see back to results button glitch)
+- Add and setup automation tests with jest and RTL
+- Add pre-commit safeguards like husky for lint, format, type, unit tests adn build checks
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
