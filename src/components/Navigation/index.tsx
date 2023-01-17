@@ -1,19 +1,17 @@
 import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Box } from "@mui/material";
 
 const navLinks = [{ id: 1, path: "/", title: "Homepage" }];
 
-type Props = {};
-
-const Navigation = ({}: Props): JSX.Element => {
+const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <nav>
-      <ul
-        style={{
-          listStyleType: "none",
+    <Box component="nav">
+      <Box
+        sx={{
           display: "flex",
           justifyContent: "center",
           gap: 16,
@@ -30,8 +28,8 @@ const Navigation = ({}: Props): JSX.Element => {
             {title}
           </Link>
         ))}
-      </ul>
-    </nav>
+      </Box>
+    </Box>
   );
 };
 
