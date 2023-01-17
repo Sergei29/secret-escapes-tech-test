@@ -23,6 +23,10 @@ const SalesSearchResults = ({
     return <Typography>{error}</Typography>;
   }
 
+  if (results?.resultCount === 0) {
+    return <Typography>Sorry, no results found</Typography>;
+  }
+
   return (
     <Box sx={{ mt: 2, display: "flex", flexWrap: "wrap", gap: 2 }}>
       {results &&

@@ -14,19 +14,26 @@ import { SaleDetails } from "@/types";
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const saleId = params?.id as string;
   const apolloClient = initialiseApolloClient();
-  const { data } = await apolloClient.query<{ sale: SaleDetails }>({
-    query: GET_SALE_BY_ID,
-    variables: {
-      saleId,
-    },
-  });
 
-  return addApolloState(apolloClient, {
-    props: {
-      pageTitle: data.sale.editorial.title,
-      metaDescription: data.sale.editorial.destinationName,
-    },
-  });
+  try {
+    const { data } = await apolloClient.query<{ sale: SaleDetails }>({
+      query: GET_SALE_BY_ID,
+      variables: {
+        saleId,
+      },
+    });
+
+    return addApolloState(apolloClient, {
+      props: {
+        pageTitle: data.sale.editorial.title,
+        metaDescription: data.sale.editorial.destinationName,
+      },
+    });
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 };
 
 type PageProps = {

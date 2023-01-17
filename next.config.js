@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["secretescapes-web.imgix.net"],
+    domains: ["secretescapes-web.imgix.net", "i.imgur.com"],
   },
 };
 
