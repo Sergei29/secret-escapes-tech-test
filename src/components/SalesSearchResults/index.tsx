@@ -18,6 +18,7 @@ const SalesSearchResults = ({
   if (loading) {
     return <Typography>Loading...</Typography>;
   }
+
   if (error) {
     return <Typography>{error}</Typography>;
   }

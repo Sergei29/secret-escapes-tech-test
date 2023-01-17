@@ -10,6 +10,9 @@ type Props = {
 };
 
 const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
+  /**
+   * @description The un-controlled input is selected here (using ref), the reason to that - at this current stage I do not need to react to each character change like validation etc. But it can be updated to a controlled input any time with minimum refactoring.
+   */
   const queryInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -38,6 +41,12 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
     handleSubmit();
   };
 
+  /**
+   * @description an effect to run on mount - fetches sales list by location,
+   * IF the location has been selected previously.
+   * ( in this case the query is already pre-fetched by SSR,
+   * see `src/pages/index.tsx`)
+   */
   useEffect(() => {
     if (!!router.query.location) {
       handleSubmitSearch(router.query.location as string);
