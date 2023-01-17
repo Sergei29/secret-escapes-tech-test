@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { QueryResult, OperationVariables } from "@apollo/client";
 import { TextField, FormControl, FormLabel, Box, Button } from "@mui/material";
+import { useRouter } from "next/router";
 
 type Props = {
   handleSubmitSearch: (
@@ -10,6 +11,7 @@ type Props = {
 
 const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
   const queryInputRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
 
   const handleSubmit = async () => {
     if (!queryInputRef.current || !queryInputRef.current.value.trim()) {
@@ -21,6 +23,11 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
     );
 
     if (!loading && !error) {
+      router.replace({
+        query: {
+          location: queryInputRef.current.value,
+        },
+      });
       queryInputRef.current.value = "";
     }
   };
@@ -30,6 +37,13 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
 
     handleSubmit();
   };
+
+  useEffect(() => {
+    if (!!router.query.location) {
+      handleSubmitSearch(router.query.location as string);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Box
