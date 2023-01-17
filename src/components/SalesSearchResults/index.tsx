@@ -15,10 +15,15 @@ const SalesSearchResults = ({
   loading,
   error,
 }: Props): JSX.Element => {
+  if (loading) {
+    return <Typography>Loading...</Typography>;
+  }
+  if (error) {
+    return <Typography>{error}</Typography>;
+  }
+
   return (
-    <Box>
-      {loading && <Typography>Loading...</Typography>}
-      {error && <Typography>{error}</Typography>}
+    <Box sx={{ mt: 2, display: "flex", flexWrap: "wrap", gap: 2 }}>
       {results &&
         results.sales.map((currentSale) => (
           <SalesCard key={currentSale.id} saleSummary={currentSale} />

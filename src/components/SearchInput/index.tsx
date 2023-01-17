@@ -34,7 +34,7 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
   return (
     <Box
       sx={{
-        mt: 4,
+        my: 4,
         display: "flex",
         flexDirection: "column",
         gap: 2,
@@ -52,7 +52,17 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
         />
       </FormControl>
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button onClick={handleSubmit} variant="contained">
+        <Button
+          onClick={handleSubmit}
+          variant="contained"
+          sx={{
+            bgcolor: (theme) => theme.palette.primary.light,
+            "&:hover": {
+              bgcolor: (theme) => theme.palette.primary.main,
+              transition: "all 300ms ease-in-out",
+            },
+          }}
+        >
           Find sales!
         </Button>
       </Box>
