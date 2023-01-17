@@ -16,9 +16,6 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.4",
     "@next/font": "13.1.2",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
     "deepmerge": "^4.2.2",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
@@ -32,6 +29,9 @@
   "devDependencies": {
     "@types/deepmerge": "^2.2.0",
     "@types/lodash": "^4.14.191",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
     "prettier": "^2.8.3"
   }
 }
