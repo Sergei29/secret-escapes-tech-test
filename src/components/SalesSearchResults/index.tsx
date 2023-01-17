@@ -1,7 +1,7 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
-import { SalesSearchResult } from "@/types";
+import { Box, Typography, LinearProgress } from "@mui/material";
 
+import { SalesSearchResult } from "@/types";
 import SalesCard from "./components/SalesCard";
 
 type Props = {
@@ -16,11 +16,30 @@ const SalesSearchResults = ({
   error,
 }: Props): JSX.Element => {
   if (loading) {
-    return <Typography>Loading...</Typography>;
+    return (
+      <Box
+        sx={{
+          display: "flex",
+          minHeight: "30vh",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <LinearProgress
+          sx={{
+            width: "100%",
+          }}
+        />
+      </Box>
+    );
   }
 
   if (error) {
     return <Typography>{error}</Typography>;
+  }
+
+  if (results?.resultCount === 0) {
+    return <Typography>Sorry, no results found</Typography>;
   }
 
   return (

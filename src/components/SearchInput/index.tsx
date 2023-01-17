@@ -1,7 +1,16 @@
 import React, { useRef, useEffect } from "react";
 import { QueryResult, OperationVariables } from "@apollo/client";
-import { TextField, FormControl, FormLabel, Box, Button } from "@mui/material";
+import {
+  TextField,
+  FormControl,
+  FormLabel,
+  Box,
+  Typography,
+} from "@mui/material";
 import { useRouter } from "next/router";
+
+import Button from "@/components/Button";
+import { theme } from "@/theme";
 
 type Props = {
   handleSubmitSearch: (
@@ -66,28 +75,29 @@ const SearchInput = ({ handleSubmitSearch }: Props): JSX.Element => {
       }}
     >
       <FormControl>
-        <FormLabel htmlFor="query">Your desired location</FormLabel>
+        <FormLabel htmlFor="query" sx={{ display: "flex", gap: 2, mb: 1 }}>
+          Enter your desired location
+          <Typography
+            sx={{
+              bgcolor: (theme) => theme.palette.primary.light,
+              color: theme.palette.common.black,
+            }}
+          >
+            👻 And HIT ENTER!!!
+          </Typography>{" "}
+        </FormLabel>
         <TextField
           type="text"
           name="query"
           inputRef={queryInputRef}
           onKeyDown={handlekeyDown}
+          InputProps={{
+            sx: { borderRadius: 0 },
+          }}
         />
       </FormControl>
       <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <Button
-          onClick={handleSubmit}
-          variant="contained"
-          sx={{
-            bgcolor: (theme) => theme.palette.primary.light,
-            "&:hover": {
-              bgcolor: (theme) => theme.palette.primary.main,
-              transition: "all 300ms ease-in-out",
-            },
-          }}
-        >
-          Find sales!
-        </Button>
+        <Button onClick={handleSubmit}>Find sales!</Button>
       </Box>
     </Box>
   );
