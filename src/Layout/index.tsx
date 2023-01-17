@@ -2,6 +2,7 @@ import React from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { Roboto } from "@next/font/google";
+import { Container, Box } from "@mui/material";
 
 import Navigation from "@/components/Navigation";
 
@@ -12,7 +13,7 @@ const inter = Roboto({
 
 type PageProps = { children: React.ReactNode };
 
-const index: NextPage<PageProps> = ({ children }) => {
+const PageLayout: NextPage<PageProps> = ({ children }) => {
   return (
     <>
       <Head>
@@ -24,12 +25,14 @@ const index: NextPage<PageProps> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={inter.className}>
+      <Box component="header" className={inter.className}>
         <Navigation />
-      </header>
-      <main className={inter.className}>{children}</main>
+      </Box>
+      <Container component="main" className={inter.className}>
+        {children}
+      </Container>
     </>
   );
 };
 
-export default index;
+export default PageLayout;
