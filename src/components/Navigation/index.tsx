@@ -9,7 +9,7 @@ const Navigation = (): JSX.Element => {
   const router = useRouter();
 
   return (
-    <Box component="nav">
+    <Box component="nav" sx={{ my: 4 }}>
       <Box
         sx={{
           display: "flex",

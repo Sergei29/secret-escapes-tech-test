@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 
 import SalesSearchResults from "@/components/SalesSearchResults";
 import SearchInput from "@/components/SearchInput";
+import PageTitle from "@/components/PageTitle";
 import {
   GET_SALES_LIST_BY_QUERY,
   initialiseApolloClient,
@@ -69,9 +70,7 @@ const HomePage: NextPage = () => {
         />
       </Head>
 
-      <Typography variant="h1" sx={{ fontSize: "2rem" }}>
-        Featured sales by location
-      </Typography>
+      <PageTitle>Featured sales by location</PageTitle>
 
       <SearchInput handleSubmitSearch={fetchByLocation} />
 

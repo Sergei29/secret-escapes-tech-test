@@ -25,6 +25,7 @@ const SalesCard = ({
     <Card
       sx={{
         width: "30%",
+        borderRadius: 0,
         "&:hover": { bgcolor: (theme) => theme.palette.primary.light },
         transition: "all 300ms ease-in-out",
         textDecoration: "none",
