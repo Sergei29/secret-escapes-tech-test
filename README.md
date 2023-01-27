@@ -6,6 +6,7 @@ chosen the following techincal stack:
 - Next.js template with Typescript
 - Apollo-Client
 - Material UI
+- DOMPurify, to sanitize unsafe html markup
 
 ## Production
 
