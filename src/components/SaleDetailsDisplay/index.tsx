@@ -2,6 +2,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Box, Typography } from "@mui/material";
 import PlaceIcon from "@mui/icons-material/Place";
+import DOMPurify from "dompurify";
 
 import ImageGallery from "./components/ImageGallery";
 import PageTitle from "@/components/PageTitle";
@@ -65,7 +66,9 @@ const SaleDetailsDisplay = ({ saleDetails }: Props): JSX.Element => {
       </Box>
       <ImageGallery images={photos} />
       {/* Dangerously set inner html - hopefully we know what content we are serving in there, (https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml) */}
-      <div dangerouslySetInnerHTML={{ __html: hotelDetails }}></div>
+      <div
+        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(hotelDetails) }}
+      ></div>
     </Box>
   );
 };
